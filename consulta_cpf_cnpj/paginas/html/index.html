@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/icon.jpg' %}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}" media="screen">
+        <title>Consulta Receita Federal</title>
+    </head>
+
+    <body>
+
+        <header>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="/">Consulta Receita Federal</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <button id="sobre" class="btn">Sobre</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Navbar -->
+
+            <!-- Jumbotron -->
+            <div class="p-5 text-center bg-light">
+                <h1 class="mb-3">Consulta de CPF e CNPJ</h1>
+                <h4 class="mb-3">Integração entre a biblioteca Selenium e o Framework Django.</h4>
+            </div>
+            <!-- Jumbotron -->
+        </header>
+        
+        <br></br>
+
+        <div class="loader">
+            <i id="icon-spinner" class="fa fa-spinner fa-spin fa-5x fa-fw"></i>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="cpf">CPF</label>
+                    <input type="text" class="form-control" id="cpf" placeholder="Digite o CPF" maxlength="11">
+                </div>
+                <div class="col-md-4">
+                    <label for="data_nasc">Data de nascimento</label>
+                    <input type="date" class="form-control" id="data_nasc" placeholder="Digite a data de nascimento">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" id="consulta_cpf" class="btn btn-primary" style="margin-top: 9%;" disabled>Consultar CPF</button>
+                </div>
+            </div>
+            <br></br>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" class="form-control" id="cnpj" placeholder="Digite o CNPJ" maxlength="14">
+                </div>
+                <div class="col-md-6">
+                    <button type="submit" id="consulta_cnpj" class="btn btn-primary" style="margin-top: 6%;" disabled>Consultar CNPJ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal-receita" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="modalTitle"></h3>
+                    </div>
+                    <div id="body-modal-receita" class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="btn-close" data-dismiss="modal" style="visibility: hidden;">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="btn-save" disabled>Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br></br>
+        <br></br>
+
+        <footer class="bd-footer py-3 mt-3 bg-dark">
+            <!-- Copyright -->
+            <div class="text-light text-center">
+                © 2021 Copyright:
+                <a class="text-light" href="https://github.com/JnCM/web-scrapping-consulta-receita">Github.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+        <script src="{% static 'js/index.js' %}"></script>
+    </body>
+
+</html>
