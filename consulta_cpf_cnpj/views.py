@@ -21,8 +21,8 @@ def get_captcha_cpf(request):
         # Salvando o captcha
         urllib.urlretrieve(src, "{}captcha_cpf.png".format(settings.PATH_TO_IMG))
         return HttpResponse(json.dumps({'mensagem': 'OK'}))
-    except:
-        return HttpResponse(json.dumps({'mensagem': 'ERROR'}))
+    except Exception as e:
+        return HttpResponse(json.dumps({'mensagem': 'ERROR', 'erro': str(e)}))
 
 def consulta_cpf(request):
     try:

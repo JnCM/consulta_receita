@@ -48,6 +48,7 @@ $("#consulta_cpf").click(function(event){
             $('#modal-receita').modal('show');
             verificaTipo = "cpf";
         }else{
+            console.log(response.erro);
             alert("Erro interno! Tente novamente mais tarde.");
         }
         $(".loader").toggle();
