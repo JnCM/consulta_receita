@@ -139,7 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PATH_TO_IMG = BASE_DIR + '/consulta_cpf_cnpj/paginas/templates/img/'
 
 # Caminho do driver do navegador utilizado (MUDAR PARA O DRIVER QUE FOR UTILIZAR)
-PATH_TO_DRIVER = "C:/edge_driver/msedgedriver.exe"
+PATH_TO_DRIVER = "/app/.chromedriver/bin/chromedriver"
+BINARY_CHROME_PATH = "/app/.apt/usr/bin/google_chrome"
 SELENIUM_DRIVER = None
 
 # Fazendo o GET da página da receita
