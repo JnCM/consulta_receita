@@ -51,7 +51,7 @@ def consulta_cpf(request):
         
         if len(temp) == 0:
             settings.SELENIUM_DRIVER.quit()
-            return HttpResponse(json.dumps({'mensagem': 'ERRO'}))
+            return HttpResponse(json.dumps({'mensagem': 'ERRO', 'erro': 'deu ruim'}))
         
         # Se não foi uma mensagem de erro, realiza o processo de obtenção dos resultados
         dados = []
@@ -71,8 +71,8 @@ def consulta_cpf(request):
 
         settings.SELENIUM_DRIVER.quit()
         return HttpResponse(json.dumps({'mensagem': 'OK', 'pessoa_fisica': final_json}))
-    except:
-        return HttpResponse(json.dumps({'mensagem': 'ERROR'}))
+    except Exception as e:
+        return HttpResponse(json.dumps({'mensagem': 'ERROR', 'erro': str(e)}))
 
 def get_captcha_cnpj(request):
     try:

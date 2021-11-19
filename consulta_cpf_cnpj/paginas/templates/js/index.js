@@ -120,6 +120,7 @@ $("#btn-save").click(function(event){
                         </h2> 
                     </div>
                 `);
+                console.log(response.erro);
                 $('#modal-receita').modal('show');
                 $("#btn-save").css("visibility", "hidden");
             }
